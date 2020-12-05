@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-    belongs_to :user
-    belongs_to :routine
+    has_many :routines
+    has_many :users, :through => :products
 
     validates :name, presence: true
     validates :name, uniqueness: true
