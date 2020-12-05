@@ -1,5 +1,8 @@
-<h1>Test</h1>
+<h1>Welcome <%= current_user.username %>!</h1>
+<p>
 Your current routines:<br>
-<% @routines.each |routine| do %>
-    <%= routine %> <br>
+<% @routines.each do |routine| %>
+    <%= routine %> 
 <% end %>
+</p>
+
