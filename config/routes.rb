@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'products/new'
   get 'products/edit'
   get 'products/create'
+  
   devise_for :users, :controllers => {:registrations => 'registrations', :omniauth_callbacks => 'callbacks'}
   root to: 'application#welcome'
 
