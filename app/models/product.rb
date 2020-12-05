@@ -3,5 +3,6 @@ class Product < ApplicationRecord
     belongs_to :routine
 
     validates :name, presence: true
+    validates :name, uniqueness: true
     validates :active_ingredient_1, presence: true
 end
