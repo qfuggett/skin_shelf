@@ -11,6 +11,7 @@ class RoutinesController < ApplicationController
 
   def new
     @routine = Routine.new
+    @routine.build_product
     @days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   end
 
@@ -19,9 +20,13 @@ class RoutinesController < ApplicationController
   end
 
   def create
-    @routine = Routine.create(routine_params)
-
-    redirect_to routine_path(@routine)
+    @routine = Routine.new(routine_params)
+    @routine.user_id = session[:user_id]
+    if @routine.save 
+      redirect_to routine_path(@routine)
+    else
+      render :new
+    end
   end
 
   def update

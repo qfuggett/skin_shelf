@@ -1,20 +1,26 @@
 <h1>Create a New Routine!</h1>
 <p>
-  <%= form_for(@routine) do |f| %> 
+  <%= form_for(routines_new_path) do |f| %> 
     <div>
-        Name your routine: <%= r.text_field :name %><br>
+        Name your routine: <%= f.text_field :name %><br>
     </div>
 
     <p>Choose a product that you already have: </p>
     <div>
         <%= f.collection_select :product_id, Product.all, :id, :name %>
+    </div>
 
-
-    <p>Add a product! </p>
-
-
+    <p>If you don't have a product, add one! </p>
+    <div>
+        <%= f.fields_for :product do |p| %>
+            <%= p.label :name %>
+            <%= p.text_field :name %><br>
+            <%= p.label :active_ingredient_1 %>
+            <%= p.text_field :active_ingredient_1 %><br>
+            <%= p.label :active_ingredient_2 %>
+            <%= p.text_field :active_ingredient_2 %>
+        <% end %>
+    </div>
     <%= f.submit %>
   <% end %>
-    <br>
-
 </p>
