@@ -1,2 +1,20 @@
-<h1>Routines#new</h1>
-<p>Find me in app/views/routines/new.html.erb</p>
+<h1>Create a New Routine!</h1>
+<p>
+  <%= form_for(@routine) do |f| %> 
+    <div>
+        Name your routine: <%= r.text_field :name %><br>
+    </div>
+
+    <p>Choose a product that you already have: </p>
+    <div>
+        <%= f.collection_select :product_id, Product.all, :id, :name %>
+
+
+    <p>Add a product! </p>
+
+
+    <%= f.submit %>
+  <% end %>
+    <br>
+
+</p>

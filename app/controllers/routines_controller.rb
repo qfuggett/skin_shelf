@@ -11,6 +11,7 @@ class RoutinesController < ApplicationController
 
   def new
     @routine = Routine.new
+    @days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   end
 
   def edit
