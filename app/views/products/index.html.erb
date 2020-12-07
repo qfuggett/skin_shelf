@@ -1,9 +1,14 @@
 <% if @products.empty? %>
     <h2>You don't have any products yet! </h2>
-    <h4><br> Add a <%= link_to 'routine', routines_path %> first to create your first product!</h4>
+    <h4><br> Add a <%= link_to 'routine', routines_path %> first to show a list of your products!</h4>
 <% else %>
     <h2>Here are all of the products you currently use:</h2>
     <% @products.each do |p| %>
     <%= link_to p.name, product_routines_path(p) %> <br>
     <% end %>
+    <h2>Products that may be stronger than others (with more than one active ingredient): </h2><br>
+    <% @strong_products.each do |s| %>
+        <%= s.name %>
+    <% end %>
+    <br>
 <% end %>

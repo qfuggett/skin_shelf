@@ -5,12 +5,12 @@
         Name your routine: <%= f.text_field :name %><br>
     </div>
     <% if params[:product_id] %>
-        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :product_id, value: params[:product_id] %>
     
     <% else %>
         <p>Choose a product that you already have: </p>
         <div>
-            <%= f.collection_select :product_id, current_user.products, :id, :name %>
+            <%= f.collection_select :product_id, current_user.products.uniq, :id, :name %>
         </div>
         
         <p>Or Add One! </p>

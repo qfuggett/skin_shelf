@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = current_user.products.uniq
+    @strong_products = current_user.products.strong.uniq
   end
 
   def show
