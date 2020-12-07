@@ -26,7 +26,6 @@ class RoutinesController < ApplicationController
 
   def create
     @routine = current_user.routines.build(routine_params)
-    binding.pry
     if @routine.save 
       redirect_to routine_path(@routine)
     else
@@ -39,6 +38,11 @@ class RoutinesController < ApplicationController
     @routine.update(routine_params)
 
     redirect_to routine_path(@routine)
+  end
+
+  def destroy
+    @routine = current_user.routines.find_by(id: params[:id])
+    @routine.destroy
   end
 
   private

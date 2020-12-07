@@ -6,7 +6,7 @@
     <h2>Here is a list of all your current routines:</h2>
 <% end %>
 <% @routines.each do |r| %>
-    <%= link_to r.name, edit_routine_path(r) %> <br>
+    <%= link_to r.name, edit_routine_path(r) %> &emsp; <%= link_to "delete", routine_path(r), method: :delete, data: { confirm: "Are you sure?"} %> <br>
 <% end %>
 
 <p>
