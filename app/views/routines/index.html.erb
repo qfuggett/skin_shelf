@@ -1,15 +1,17 @@
 <% if @product %>
     <h2><%= @product.name %> is used in the following routines: </h2>
+<% elsif @routines.empty? %>
+    <h2>You don't have any routines yet!</h2>
 <% else %>
     <h2>Here is a list of all your current routines:</h2>
 <% end %>
 <% @routines.each do |r| %>
-<%= r.name %> <br>
+    <%= link_to r.name, edit_routine_path(r) %> <br>
 <% end %>
 
 <p>
     <% if @product %>
-        <%= link_to "Create New Routine", new_product_routine_path(@product) %>
+        <%= link_to "Create a new routine for this product", new_product_routine_path(@product) %>
     <% else %>
         <%= link_to "Create New Routine", new_routine_path %>
 

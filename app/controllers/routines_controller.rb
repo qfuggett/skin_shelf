@@ -42,7 +42,7 @@ class RoutinesController < ApplicationController
   end
 
   private
-  
+
   def routine_params
     params.require(:routine).permit(:name, :product_id, product_attributes: [
       :name,
