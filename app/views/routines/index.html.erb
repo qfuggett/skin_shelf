@@ -1,2 +1,12 @@
 <h1>Routines#index</h1>
-<p>Find me in app/views/routines/index.html.erb</p>
+<% @routines.each do |r| %>
+<%= r.name %> <br>
+    <% end %>
+
+<% if @product %>
+    <%= link_to "Create New Routine", new_product_routine_path(@product) %>
+<% else %>
+    <%= link_to "Create New Routine", new_routine_path %>
+
+<% end %>
+

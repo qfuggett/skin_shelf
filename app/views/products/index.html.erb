@@ -1,2 +1,4 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<% @products.each do |p| %>
+    <%= link_to p.name, product_routines_path(p) %> <br>
+<% end %>

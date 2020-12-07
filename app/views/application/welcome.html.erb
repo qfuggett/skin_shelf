@@ -1,4 +1,9 @@
 <h1>Welcome to your Skin Shelf!</h1>
     <% if current_user %>
-    <%= link_to "Create New Routine", routines_path %>
+    <% current_user.routines.each do |r| %>
+        <%= r.name %>  <br>
+    <% end %>
+    <br>
+    <%= link_to "Create New Routine", new_routine_path %>
+
     <% end %>

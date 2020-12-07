@@ -2,33 +2,11 @@ class ProductsController < ApplicationController
   # before_action :require_login
 
   def index
-    @products = Product.all
-    @user = current_user
+    @products = current_user.products.uniq
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
-  end
-
-  def new
-    @product = Product.new
-  end
-
-  def edit
-    @product = Product.find_by(id: params[:id])
-  end
-
-  def create
-    @product = Product.create(product_params)
-
-    redirect_to product_path(@product)
-  end
-
-  def update
-    @product = Product.find_by(id: params[:id])
-    @product.update(product_params)
-
-    redirect_to product_path(@product)
+    @product = current_user.products.find_by(id: params[:id])
   end
 
   private

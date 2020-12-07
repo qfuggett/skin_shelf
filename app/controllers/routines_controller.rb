@@ -2,16 +2,21 @@ class RoutinesController < ApplicationController
   # before_action :require_login
 
   def index
-    @routines = current_user.routines
+    if params[:product_id]
+      @routines = current_user.routines.where(product_id: params[:product_id])
+      @product = current_user.products.find_by(id: params[:product_id])
+    else
+      @routines = current_user.routines
+    end
   end
 
   def show
-    @routine = Routine.find_by(id: params[:id])
+    @routine = current_user.routines.find_by(id: params[:id])
   end
 
   def new
     @routine = current_user.routines.build
-    @routine.build_product
+    @product = @routine.build_product
     @days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   end
 
@@ -21,6 +26,7 @@ class RoutinesController < ApplicationController
 
   def create
     @routine = current_user.routines.build(routine_params)
+    binding.pry
     if @routine.save 
       redirect_to routine_path(@routine)
     else
@@ -44,6 +50,10 @@ class RoutinesController < ApplicationController
   # end 
 
   def routine_params
-    params.require(:routine).permit(:name, :user_id, :product_id)
+    params.require(:routine).permit(:name, :product_id, product_attributes: [
+      :name,
+      :active_ingredient_1,
+      :active_ingredient_2
+     ])
   end
 end
