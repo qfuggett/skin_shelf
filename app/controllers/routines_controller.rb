@@ -2,7 +2,7 @@ class RoutinesController < ApplicationController
   # before_action :require_login
 
   def index
-    @routines = Routine.all
+    @routines = current_user.routines
   end
 
   def show
@@ -10,18 +10,17 @@ class RoutinesController < ApplicationController
   end
 
   def new
-    @routine = Routine.new
+    @routine = current_user.routines.build
     @routine.build_product
     @days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   end
 
   def edit
-    @routine = Routine.find_by(id: params[:id])
+    @routine = current_user.routines.find_by(id: params[:id])
   end
 
   def create
-    @routine = Routine.new(routine_params)
-    @routine.user_id = session[:user_id]
+    @routine = current_user.routines.build(routine_params)
     if @routine.save 
       redirect_to routine_path(@routine)
     else
@@ -30,7 +29,7 @@ class RoutinesController < ApplicationController
   end
 
   def update
-    @routine = Routine.find_by(id: params[:id])
+    @routine = current_user.routines.find_by(id: params[:id])
     @routine.update(routine_params)
 
     redirect_to routine_path(@routine)
