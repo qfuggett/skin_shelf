@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_action :require_login
+  before_action :user_signed_in?
 
   def index
     @products = current_user.products.uniq
@@ -10,12 +10,6 @@ class ProductsController < ApplicationController
   end
 
   private
-
-  # def require_login
-  #   if !session.include? :user_id
-  #       redirect_to '/'
-  #   end
-  # end
 
   def product_params
     params.require(:product).permit(:name, :active_ingredient_1, :active_ingredient_2)

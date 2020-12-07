@@ -1,5 +1,5 @@
 class RoutinesController < ApplicationController
-  # before_action :require_login
+  before_action :user_signed_in?
 
   def index
     if params[:product_id]
@@ -42,13 +42,7 @@ class RoutinesController < ApplicationController
   end
 
   private
-
-  # def require_login
-  #   if !session.include? :user_id
-  #       redirect_to '/'
-  #   end
-  # end 
-
+  
   def routine_params
     params.require(:routine).permit(:name, :product_id, product_attributes: [
       :name,

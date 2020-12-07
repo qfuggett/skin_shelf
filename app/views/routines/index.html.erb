@@ -1,12 +1,18 @@
-<h1>Routines#index</h1>
+<% if @product %>
+    <h2><%= @product.name %> is used in the following routines: </h2>
+<% else %>
+    <h2>Here is a list of all your current routines:</h2>
+<% end %>
 <% @routines.each do |r| %>
 <%= r.name %> <br>
-    <% end %>
-
-<% if @product %>
-    <%= link_to "Create New Routine", new_product_routine_path(@product) %>
-<% else %>
-    <%= link_to "Create New Routine", new_routine_path %>
-
 <% end %>
+
+<p>
+    <% if @product %>
+        <%= link_to "Create New Routine", new_product_routine_path(@product) %>
+    <% else %>
+        <%= link_to "Create New Routine", new_routine_path %>
+
+    <% end %>
+</p>
 

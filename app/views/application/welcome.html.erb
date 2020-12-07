@@ -1,9 +1,11 @@
 <h1>Welcome to your Skin Shelf!</h1>
-    <% if current_user %>
-    <% current_user.routines.each do |r| %>
-        <%= r.name %>  <br>
-    <% end %>
-    <br>
-    <%= link_to "Create New Routine", new_routine_path %>
-
-    <% end %>
+<br>
+<h3>Most popular products across all users:</h3>
+<% @products.each do |p| %>
+    <%= p.name %>
+<% end %>
+<br>
+<h3>Search our product database:</h3>
+<% @products.each do |p| %>
+    <%= p.name %>
+<% end %>
