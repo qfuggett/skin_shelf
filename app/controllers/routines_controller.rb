@@ -17,7 +17,6 @@ class RoutinesController < ApplicationController
   def new
     @routine = current_user.routines.build
     @product = @routine.build_product
-    @days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   end
 
   def edit

@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
     scope :strong, -> {where.not(active_ingredient_2: "")}
     has_many :routines
-    has_many :users, :through => :products
+    has_many :users, :through => :routines
 
     validates :name, presence: true
     validates :name, uniqueness: true
