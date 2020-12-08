@@ -1,6 +1,6 @@
 # Skin Shelf App
 
-A Ruby on Rails application that with a Content Management System taht uses RESTful routes.
+A Ruby on Rails application that with a Content Management System that uses RESTful routes.
 
 ## Installation 
 

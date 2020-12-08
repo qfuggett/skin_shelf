@@ -6,7 +6,7 @@
     <% @products.each do |p| %>
     <%= link_to p.name, product_routines_path(p) %> <br>
     <% end %>
-    <h2>Strongest Products(with more than one active ingredient): </h2><br>
+    <h2>Strongest Products(with more than one active ingredient): </h2>
     <% @strong_products.each do |s| %>
         <%= s.name %> <br>
     <% end %>
