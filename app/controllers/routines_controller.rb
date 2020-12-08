@@ -43,6 +43,8 @@ class RoutinesController < ApplicationController
   def destroy
     @routine = current_user.routines.find_by(id: params[:id])
     @routine.destroy
+
+    redirect_to routines_path(@routines)
   end
 
   private
