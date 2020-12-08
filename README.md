@@ -3,11 +3,12 @@
 A Ruby on Rails application that with a Content Management System that uses RESTful routes.
 
 ## Installation 
-
+`cd` into `skin_shelf` after cloning from Github.
 Be sure to `bundle install` after cloning from Github.
 Run `rake db:migrate` to set up the database needed for the app.
 Create a `.env` file and add your Github Key and Secret. 
 If you don't have one, you can get one by going to Github through `Settings` --> `Developer Settings` --> `OAuth Apps` --> `New OAuth App`.
+Add your `.env` file to `.gitignore`.
 
 ## Usage
 
