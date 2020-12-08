@@ -1,11 +1,6 @@
 <h1>Welcome to your Skin Shelf!</h1>
 <h2>Click on the links above to get started</h2>
-<br>
-<h3>Most popular products across all users:</h3>
-<% @products.each do |p| %>
-    <%= p.name %>
-<% end %>
-<br>
+<h3><i>Fun Fact: The <%= @popular_product.keys[0] %> is the most popular product across all users!! </i></h3>
 <h3>Search our product database:</h3>
 <% @products.each do |p| %>
     <%= p.name %>
